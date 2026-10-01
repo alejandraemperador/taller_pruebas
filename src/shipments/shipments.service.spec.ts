@@ -13,8 +13,8 @@ describe('ShipmentsService', () => {
   const shipmentsRepositoryMock = {
     find: jest.fn<() => Promise<ShipmentEntity[]>>(),
     findOneBy: jest.fn <() => Promise<ShipmentEntity | null>>(),
-    create: jest.fn() as jest.Mock,
-    save: jest.fn() as jest.Mock,
+    create: jest.fn <(data: Partial<ShipmentEntity>) => ShipmentEntity>(),
+    save: jest.fn <(shipment: ShipmentEntity) => Promise<ShipmentEntity>>(),
   };
 
   const shipmentRulesServiceMock = {
